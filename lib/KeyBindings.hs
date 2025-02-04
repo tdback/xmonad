@@ -22,7 +22,7 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
     , ((modm, xK_b),                     safeSpawn myBrowser [])
     , ((modm .|. shiftMask, xK_c),       kill)
     , ((modm, xK_n),                     refresh)
-    , ((modm, xK_q),                     spawn "xmonad --recompile; xmonad --restart")
+    , ((modm, xK_q),                     spawn "xmonad --recompile && xmonad --restart")
     , ((modm, xK_f),                     sendMessage $ Toggle FULL)
     , ((modm .|. shiftMask, xK_f),       withFocused WS.toggleFloat)
     , ((modm, xK_space),                 sendMessage NextLayout)
