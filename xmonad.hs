@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Fullscreen
 
 import Defaults
+import EventHook
 import KeyBindings
 import Layout
 import LogHook
@@ -19,6 +20,7 @@ main = xmonad . withStatusBars . fullscreenSupport . docks . ewmh $ defaults
         , focusFollowsMouse  = myFocusFollowsMouse
         , clickJustFocuses   = myClickJustFocuses
         , logHook            = myLogHook
+        , handleEventHook    = myEventHook
         , terminal           = myTerminal
         , layoutHook         = myLayoutHook
         , borderWidth        = myBorderWidth
