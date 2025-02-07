@@ -39,6 +39,7 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
     , ((modm, xK_e),                     viewEmptyWorkspace)
     , ((modm .|. shiftMask, xK_e),       tagToEmptyWorkspace)
     , ((modm, xK_t),                     withFocused $ windows . W.sink)
+    , ((modm, xK_x),                     spawn "emacsclient -cn")
     , ((modm, xK_r),                     spawn "rofi -show drun")
     , ((altMask, xK_Tab),                spawn "rofi -show window")
     , ((modm, xK_p),                     spawn "snapshot -f")
