@@ -47,9 +47,10 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
     , ((0, xF86XK_AudioPrev),            spawn "mpc prev")
     , ((0, xF86XK_AudioNext),            spawn "mpc next")
     , ((0, xF86XK_AudioPlay),            spawn "mpc toggle")
-    , ((0, xF86XK_AudioRaiseVolume),     spawn "pamixer -i 5")
-    , ((0, xF86XK_AudioLowerVolume),     spawn "pamixer -d 5")
-    , ((0, xF86XK_AudioMute),            spawn "pamixer -t")
+    , ((0, xF86XK_AudioRaiseVolume),     spawn "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
+    , ((0, xF86XK_AudioLowerVolume),     spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+    , ((0, xF86XK_AudioMute),            spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+    , ((0, xF86XK_AudioMicMute),         spawn "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
     ]
     ++
     [ ((m .|. modm, k), windows $ f i)
