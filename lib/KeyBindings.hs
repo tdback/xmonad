@@ -16,7 +16,8 @@ import qualified WindowState as WS
 import qualified XMonad.StackSet as W
 
 myColemak modm =
-  [ ((modm, xK_h),               refresh)
+  [ ((modm, xK_v),               safeSpawn myBrowser [])
+  , ((modm, xK_h),               refresh)
   , ((modm, xK_t),               sendMessage $ Toggle FULL)
   , ((modm .|. shiftMask, xK_t), withFocused WS.toggleFloat)
   , ((modm, xK_space),           sendMessage NextLayout)
@@ -40,7 +41,8 @@ myColemak modm =
   ]
 
 myQwerty modm =
-  [ ((modm, xK_n),               refresh)
+  [ ((modm, xK_b),               safeSpawn myBrowser [])
+  , ((modm, xK_n),               refresh)
   , ((modm, xK_f),               sendMessage $ Toggle FULL)
   , ((modm .|. shiftMask, xK_f), withFocused WS.toggleFloat)
   , ((modm, xK_space),           sendMessage NextLayout)
@@ -67,7 +69,6 @@ myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig{XMonad.modMask = modm}) =
   M.fromList $
     [ ((modm .|. shiftMask, xK_Return), safeSpawn (XMonad.terminal conf) [])
-    , ((modm, xK_b),                    safeSpawn myBrowser [])
     , ((modm .|. shiftMask, xK_c),      kill)
     , ((modm, xK_q),                    spawn "xmonad --recompile && xmonad --restart")
     , ((0, xF86XK_AudioPrev),           spawn "mpc prev")
