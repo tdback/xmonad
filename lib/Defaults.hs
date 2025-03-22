@@ -8,7 +8,7 @@ myTerminal :: String
 myTerminal = "alacritty"
 
 myBrowser :: String
-myBrowser = "firefox"
+myBrowser = "librewolf"
 
 myModMask :: KeyMask
 myModMask = mod4Mask
